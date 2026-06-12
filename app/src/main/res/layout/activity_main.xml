@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电池消耗器"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Battery Drainer"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Battery Level Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_battery_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前电量: --%"
+                android:textSize="32sp"
+                android:textColor="#4CAF50"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="状态: 未启动"
+                android:textSize="16sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Threshold Setting Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自动暂停设置"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当电量降到以下值时自动暂停耗电"
+                android:textSize="13sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tv_threshold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂停阈值: 20%"
+                android:textSize="20sp"
+                android:textColor="#FF9800"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_threshold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="80"
+                android:progress="20"
+                android:progressTint="#FF9800"
+                android:thumbTint="#FF9800" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0%"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="80%"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:gravity="end" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="开始耗电"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="停止耗电"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#F44336"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_request_ignore_battery"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="关闭电池优化（推荐）"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#607D8B"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Tips -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用提示"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 建议先关闭电池优化，防止系统杀掉后台\n2. 耗电方式：CPU高负载运算 + 网络请求 + 震动\n3. 电量达到阈值后自动暂停，无需手动操作\n4. 运行时屏幕保持常亮效果更好"
+                android:textSize="13sp"
+                android:textColor="#AAAAAA"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
